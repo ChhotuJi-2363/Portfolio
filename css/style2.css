@@ -1,0 +1,849 @@
+/* ==========================================
+   Portfolio Website - Custom Styles
+   Author: Chhotu Verma
+   ========================================== */
+
+/* ==========================================
+   CSS Variables
+   ========================================== */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --text-color: #333;
+    --text-light: #666;
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================
+   Global Styles
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* ==========================================
+   Navigation Bar
+   ========================================== */
+.navbar {
+    background-color: var(--dark-color) !important;
+    padding: 1rem 0;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff !important;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 80%;
+}
+
+/* Navbar scroll effect */
+.navbar.scrolled {
+    padding: 0.5rem 0;
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================
+   Hero Section
+   ========================================== */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+/* Animated background effect */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    color: #fff;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section .text-primary {
+    color: #ffd700 !important;
+}
+
+.hero-section h2 {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+.hero-section .lead {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.25rem;
+}
+
+/* Hero buttons */
+.hero-buttons .btn {
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.hero-buttons .btn-primary {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.hero-buttons .btn-primary:hover {
+    background-color: transparent;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-buttons .btn-outline-light:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.scroll-down {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.scroll-down:hover {
+    color: #fff;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ==========================================
+   Animation Classes
+   ========================================== */
+.animate-fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.animate-fade-in-delay-1 {
+    animation: fadeIn 1s ease-in 0.3s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeIn 1s ease-in 0.6s both;
+}
+
+.animate-fade-in-delay-3 {
+    animation: fadeIn 1s ease-in 0.9s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   Section Styles
+   ========================================== */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), #764ba2);
+    border-radius: 2px;
+}
+
+/* ==========================================
+   About Section
+   ========================================== */
+.about-content {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.about-content .lead {
+    font-size: 1.25rem;
+    color: var(--text-color);
+}
+
+.about-info {
+    margin-top: 2rem;
+}
+
+.about-info p {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+    transition: var(--transition);
+    animation: float 3s ease-in-out infinite;
+}
+
+.profile-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ==========================================
+   Skills Section
+   ========================================== */
+.skill-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #e9ecef;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.skill-icon {
+    margin-bottom: 1rem;
+}
+
+.skill-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.skill-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   Experience Section
+   ========================================== */
+.experience-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-color);
+}
+
+.experience-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.experience-logo {
+    flex-shrink: 0;
+}
+
+.experience-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience-company {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.experience-duration {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-list li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.experience-list li i {
+    position: absolute;
+    left: 0;
+    top: 1rem;
+}
+
+/* ==========================================
+   Projects Section
+   ========================================== */
+.project-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.project-icon {
+    text-align: center;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.project-description {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.project-tech .badge {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.project-card .btn {
+    margin-top: auto;
+    width: 100%;
+}
+
+/* ==========================================
+   Hire Me Section
+   ========================================== */
+.service-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #e9ecef;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.service-icon {
+    margin-bottom: 1rem;
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.service-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.feature-item {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.feature-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.feature-item h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   Resume Section
+   ========================================== */
+.resume-card {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.resume-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.resume-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+.resume-card h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.resume-card .btn {
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.resume-card .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================
+   WhatsApp Contact Section
+   ========================================== */
+.whatsapp-card {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.whatsapp-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.whatsapp-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+.whatsapp-card h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.whatsapp-card .btn-success {
+    background-color: #25D366;
+    border-color: #25D366;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.whatsapp-card .btn-success:hover {
+    background-color: #20BA5A;
+    border-color: #20BA5A;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.whatsapp-card .text-success {
+    color: #25D366 !important;
+}
+
+/* ==========================================
+   Contact Section
+   ========================================== */
+.contact-info {
+    padding: 2rem;
+}
+
+.contact-info i {
+    margin-bottom: 1rem;
+}
+
+.contact-info h5 {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.contact-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+}
+
+.contact-form .form-label {
+    font-weight: 500;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.contact-form .form-control {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    transition: var(--transition);
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-link {
+    color: var(--primary-color);
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.social-link:hover {
+    color: #764ba2;
+    transform: translateY(-5px);
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+footer {
+    background-color: var(--dark-color) !important;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-social-link {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.25rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.footer-social-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 991.98px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .experience-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding-top: 100px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 1.25rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-buttons .btn.me-3 {
+        margin-right: 0 !important;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .skill-card,
+    .project-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .experience-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .about-content {
+        font-size: 1rem;
+    }
+    
+    .service-card,
+    .feature-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    .resume-card {
+        padding: 2rem;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .experience-title {
+        font-size: 1.5rem;
+    }
+    
+    .experience-company {
+        font-size: 1.1rem;
+    }
+    
+    .project-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+.bg-light {
+    background-color: var(--light-color) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Smooth scroll behavior for older browsers */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .hero-buttons,
+    .contact-form,
+    footer {
+        display: none;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
